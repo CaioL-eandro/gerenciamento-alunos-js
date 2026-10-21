@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Alunos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>GERENCIAMENTO DE ALUNOS</h1>
+    </header>
+    <main id="container-geral">
+
+        <section id="card-resumo">  
+            <p>Total de alunos:<span id="total-alunos"></span></p>
+            <p>Aprovados:<span id="aprovados"></span></p>
+            <p>Reprovados:<span id="reprovados"></span></p>
+            <p>Recuperação:<span id="recuperacao"></span></p>
+        </section>
+        
+        
+        <div id="container-alunos">
+            <form id="form-cadastrar-aluno">
+                <div id="card-cadastrar-aluno">
+                <h2>Cadastrar alunos</h2>
+                <label for="input-nome">Nome</label>
+                <input type="text" id="input-nome" required >
+                <label for="input-idade">Idade</label>
+                <input type="number" id="input-idade" required min="10" max="25">
+                <label for="select-turma">Turma</label>
+                    <select name="select-turma" id="select-turma" required>  
+                        <option value="">Selecione uma turma </option>
+                        <option value="6ano">6°ano</option>
+                        <option value="7ano">7°ano</option>
+                        <option value="8ano">8°ano</option>
+                        <option value="9ano">9°ano</option>
+                        <option value="1medio">1°ano E.medio</option>
+                        <option value="2medio">2°ano E.medio</option>
+                        <option value="3medio">3°ano E.medio</option>
+                    </select>
+
+                <label for="nota1">Nota 1</label>
+                <input type="number" id="nota1" min="0" max="10" step="0.1" required>
+                <label for="nota2">Nota 2</label>
+                <input type="number" id="nota2" min="0" max="10" step="0.1" required>
+                <button  id="botao-cadastrar" type="submit" >Cadastrar Aluno</button>
+            </div>
+            </form>
+            
+            <section id="listar-alunos">
+                <h2>Lista de alunos</h2>
+                <label for="input-buscar-aluno">Buscar aluno:</label>
+                <input type="text" id="input-buscar-aluno">
+                <label for="select-turma-lista">Turma:</label>
+                <select name="select-turma-lista" id="select-turma-lista">
+                    <option value="">Todas as turmas </option>
+                        <option value="6ano">6°ano</option>
+                        <option value="7ano">7°ano</option>
+                        <option value="8ano">8°ano</option>
+                        <option value="9ano">9°ano</option>
+                        <option value="1medio">1°ano E.medio</option>
+                        <option value="2medio">2°ano E.medio</option>
+                        <option value="3medio">3°ano E.medio</option>
+                </select>
+                <p>Situação</p>
+                
+                <input type="radio" id="situacao-todos" name="grupo-situacao" value="todos" checked>
+                <label for="situacao-todos">Todos</label>
+                <input type="radio" id="situacao-reprovados" name="grupo-situacao" value="Reprovado">
+                <label for="situacao-reprovados">Reprovados</label>
+                <input type="radio" id="situacao-aprovados" name="grupo-situacao" value="Aprovado">
+                <label for="situacao-aprovados">Aprovados</label>
+                <input type="radio" id="situacao-recuperacao" name="grupo-situacao" value="Recuperação">
+                <label for="situacao-recuperacao">Recuperacao</label>
+                <ul id="lista-alunos">
+                </ul>
+                </section>
+        </div>
+    </main>
+    <footer><p>Sistema de Gerenciamento de Alunos © 2026 </p></footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!-- ┌────────────────────────────────────────────────────────────────────────┐
+│                    🎓 GERENCIAMENTO DE ALUNOS                         │
+└────────────────────────────────────────────────────────────────────────┘
+
+
+┌──────────────────────┐ ┌──────────────────────┐ ┌──────────────────────┐
+│   TOTAL DE ALUNOS    │ │      APROVADOS       │ │      REPROVADOS      │
+│                      │ │                      │ │                      │
+│          10          │ │           7          │ │           3          │
+└──────────────────────┘ └──────────────────────┘ └──────────────────────┘
+
+
+┌──────────────────────────────┐  ┌─────────────────────────────────────┐
+│       CADASTRAR ALUNO        │  │          LISTA DE ALUNOS            │
+│                              │  │                                     │
+│ Nome                         │  │ Buscar aluno:                       │
+│ [________________________]   │  │ [________________________] 🔎       │
+│                              │  │                                     │
+│ Idade                        │  │ Turma:                              │
+│ [________________________]   │  │ [ Todas as turmas          ▼ ]      │
+│                              │  │                                     │
+│ Turma                        │  │ Situação:                           │
+│ [ Selecione            ▼ ]   │  │ (•) Todos                           │
+│                              │  │ ( ) Aprovados                       │
+│ Nota 1                       │  │ ( ) Reprovados                      │
+│ [________________________]   │  │                                     │
+│                              │  │ ┌─────────────────────────────────┐ │
+│ Nota 2                       │  │ │ João Silva                      │ │
+│ [________________________]   │  │ │ Idade: 15 anos                  │ │
+│                              │  │ │ Turma: 9º Ano                    │ │
+│                              │  │ │ Nota 1: 8.0  |  Nota 2: 7.0     │ │
+│                              │  │ │ Média: 7.5                      │ │
+│ [      CADASTRAR ALUNO     ] │  │ │ Situação: APROVADO              │ │
+│                              │  │ │                                 │ │
+│                              │  │ │ [ Editar ]  [ Excluir ]         │ │
+│                              │  │ └─────────────────────────────────┘ │
+│                              │  │                                     │
+│                              │  │ ┌─────────────────────────────────┐ │
+│                              │  │ │ Maria Oliveira                  │ │
+│                              │  │ │ Idade: 16 anos                  │ │
+│                              │  │ │ Turma: 1º Ano                    │ │
+│                              │  │ │ Nota 1: 4.0  |  Nota 2: 5.0     │ │
+│                              │  │ │ Média: 4.5                      │ │
+│                              │  │ │ Situação: REPROVADO             │ │
+│                              │  │ │                                 │ │
+│                              │  │ │ [ Editar ]  [ Excluir ]         │ │
+│                              │  │ └─────────────────────────────────┘ │
+└──────────────────────────────┘  └─────────────────────────────────────┘
+
+
+┌────────────────────────────────────────────────────────────────────────┐
+│                 Sistema de Gerenciamento de Alunos © 2026             │
+└────────────────────────────────────────────────────────────────────────┘ -->

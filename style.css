@@ -1,0 +1,179 @@
+/* CONFIGURAÇÕES GERAIS */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+/* CONTAINER PRINCIPAL */
+#container-geral {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* CABEÇALHO */
+header {
+    background-color: blue;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* RESUMO DOS ALUNOS */
+#card-resumo {
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#indicadores-resumo {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#indicadores-resumo p {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+}
+
+#indicadores-resumo span {
+    display: block;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* CADASTRO E LISTAGEM */
+#container-alunos {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#form-cadastrar-aluno,
+#listar-alunos {
+    flex: 1;
+    min-width: 0;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* FORMULÁRIO */
+#card-cadastrar-aluno {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#card-cadastrar-aluno h2,
+#listar-alunos h2 {
+    margin-top: 0;
+}
+
+#card-cadastrar-aluno label,
+#listar-alunos label {
+    font-weight: bold;
+}
+
+/* CAMPOS */
+#card-cadastrar-aluno input,
+#card-cadastrar-aluno select,
+#listar-alunos input[type="text"],
+#listar-alunos select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* BOTÃO CADASTRAR */
+#botao-cadastrar {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#botao-cadastrar:hover {
+    background-color: darkblue;
+}
+
+/* LISTAGEM */
+#listar-alunos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#listar-alunos p {
+    margin-bottom: 0;
+}
+
+/* RADIOS */
+#listar-alunos input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+    accent-color: blue;
+}
+
+/* LISTA DE ALUNOS */
+#lista-alunos {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+#lista-alunos li {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+/* RODAPÉ */
+footer {
+    background-color: whitesmoke;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    color: #555;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    #container-alunos {
+        flex-direction: column;
+    }
+
+    #indicadores-resumo {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+}
